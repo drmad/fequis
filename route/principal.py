@@ -4,6 +4,7 @@ from init import app, login_manager
 
 from model import db, Usuario, Post
 from form import NuevoUsuario, IniciarSesión, EditarUsuario
+from PIL import Image
 
 import datetime
 
@@ -144,7 +145,7 @@ def editar_usuario():
 
             flash("El usuario ha sido modificado")
 
-            return redirect(url_for('página_principal'))
+            return redirect(url_for('principal.página_principal'))
         else:
             flash("Hubo un error en el formulario")
 
