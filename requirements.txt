@@ -1,0 +1,8 @@
+flask
+flask-sqlalchemy
+flask-wtf[email]
+mariadb
+argon2-cffi
+flask-login
+pillow
+flask-jwt-extended

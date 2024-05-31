@@ -1,0 +1,45 @@
+@import url('cabecera.css');
+@import url('post.css');
+
+body {
+    font-family: sans-serif;
+    margin: 0px;
+    background-color: #eee;
+}
+
+div.contenedor {
+    width: 1000px;
+    margin: 0px auto;
+    padding: 0px 5px;
+}
+
+
+ul#mensajes {
+    margin: 0px;
+    margin-bottom: 20px;
+
+    border: 1px solid yellow;
+    background-color: #FF8;
+    padding: 20px;
+    li {
+        list-style: none;
+    }
+}
+
+section.nuevo-post {
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0px;
+    background: white;
+    font-size: 120%;
+
+    textarea {
+        width: 100%;
+        min-height: 100px;
+    }
+    button[type=submit] {
+        margin: 20px 0px;
+        padding: 10px 20px;
+    }
+}

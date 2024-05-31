@@ -1,0 +1,33 @@
+{% extends 'plantilla.html' %}
+
+{% block principal %}
+<h1>Editar usuario</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {{ frm.csrf_token }}
+    <div>
+        <div>{{ frm.nombre.label }}</div>
+        <div>{{ frm.nombre }}</div>
+        {{ mostrar_errores(frm.nombre.errors)}}
+    </div>
+    <div>
+        <div>{{ frm.usuario.label }}</div>
+        <div>{{ frm.usuario }}</div>
+        {{ mostrar_errores(frm.usuario.errors)}}
+    </div>
+    <div>
+        <div>{{ frm.correo_electrónico.label }}</div>
+        <div>{{ frm.correo_electrónico }}</div>
+        {{ mostrar_errores(frm.correo_electrónico.errors)}}
+    </div>
+    <div>
+        <div>{{ frm.foto.label }}</div>
+        <div>{{ frm.foto }}</div>
+        {{ mostrar_errores(frm.foto.errors)}}
+    </div>
+    <button type="submit">
+        Actualizar información
+    </button>
+
+</form>
+{% endblock principal %}

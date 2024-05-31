@@ -1,0 +1,25 @@
+{# Hola #}
+
+{% extends 'plantilla.html' %}
+
+{% block cabecera %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilo-x.css') }}" />
+{% endblock %}
+
+{% block principal %}
+<section class="post">
+    <div class="avatar">
+        <img src="{{ url_for('static', filename='imgs/avatares/' + post.usuario + '.jpg') }}" />
+    </div>
+    <div class="contenido">
+        <div class="meta">
+            <span class="usuario">{{ post.usuario }}</span>
+            <span class="fecha">{{ post.fecha }}</span>
+        </div>
+        <div class="cuerpo">
+            {{ post.cuerpo }}
+        </div>
+    </div>
+</section>
+{% endblock %}

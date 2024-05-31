@@ -1,0 +1,48 @@
+{% macro mostrar_errores(errores) %}
+<ul>
+    {% for error in errores %}
+        <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endmacro %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block cabecera %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_base.css') }}" />
+    {% endblock %}
+</head>
+<body>
+    <header><div class="contenedor">
+        <div class="logo">
+            <a href="{{ url_for('principal.página_principal') }}">
+            <img src="{{ url_for('static', filename='imgs/logo-fequis.svg')}}" />
+            </a>
+        </div>
+        <div class="enlaces">
+            {% if current_user.is_authenticated %}
+            <span>Sesión abierta: {{ current_user.nombre }}</span>
+            <a href="{{ url_for('principal.editar_usuario') }}">Editar usuario</a>
+            <a href="{{ url_for('principal.cerrar_sesión') }}">Cerrar sesión</a>
+            {% else %}
+            <a href="{{ url_for('principal.nuevo_usuario') }}">Nuevo usuario</a>
+            <a href="{{ url_for('principal.iniciar_sesión') }}">Iniciar sesión</a>
+            {% endif %}
+        </div>
+    </div></header>
+    <main><div class="contenedor">
+
+    {% set mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+    <ul id="mensajes">
+        {% for mensaje in mensajes %}
+        <li>{{mensaje}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block principal %}
+    {% endblock %}
+    </div></main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+section.post {
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    margin: 20px 0px;
+    background: white;
+    font-size: 120%;
+}
+
+section.post .avatar img {
+    width: 80px;
+    border-radius: 100px;
+}
+
+section.post .contenido .meta{
+    color: #888;
+    border-bottom: 1px solid #ddd;
+}
+section.post .contenido .meta .usuario{
+    font-weight: bold;
+}
+
+section.post .contenido .cuerpo h1{
+    margin: 0px;
+    font-weight: normal;
+    font-size: 180%;
+}

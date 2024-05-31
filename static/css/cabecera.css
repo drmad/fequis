@@ -1,0 +1,25 @@
+header {
+    background-color: brown;
+    height: 45px;
+}
+
+header div.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+header div.contenedor div.logo img {
+    height: 30px;
+    padding: 10px;
+}
+
+header div.contenedor div.enlaces {
+    text-align: right;
+    padding-top: 10px;
+}
+
+header div.contenedor div.enlaces a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 10px;
+}

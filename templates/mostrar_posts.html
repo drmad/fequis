@@ -1,0 +1,53 @@
+{% extends 'plantilla.html' %}
+
+{% block cabecera %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/scripts.js')}}" defer="true"></script>
+{% endblock cabecera %}
+
+{% block principal %}
+
+{% if current_user.is_authenticated %}
+<section class="nuevo-post">
+<form method="post">
+    <label>
+        <div>¿Qué estás pensando?</div>
+        <div>
+            <textarea name="cuerpo" required="true"></textarea>
+        </div>
+        <div>
+            <button type="submit">Crear post</button>
+        </div>
+    </label>
+</form>
+</section>
+{% endif %}
+
+{% for post in posts %}
+
+<section class="post">
+    <div class="avatar">
+        {% set codigo_avatar = post.usuario.id | string if post.usuario.tiene_foto else 'foto-perfil-defecto' %}
+        <img src="{{ url_for('static', filename='imgs/avatares/' + codigo_avatar + '.jpg') }}" />
+    </div>
+    <div class="contenido">
+        <div class="meta">
+            <span class="usuario">{{ post.usuario.nombre }}</span>
+            <span class="fecha">{{ post.fecha }}</span>
+        </div>
+        <div class="cuerpo">
+            {{ post.cuerpo }}
+
+            <div class="enlaces">
+                👍 {{ post.likes }} ·
+                <a href="{{ url_for('principal.mostrar_post', codigo = loop.index0) }}">Ver más</a> ·
+                <a href="#" data-id="{{ post.id }}">Borrar</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+{% endblock %}
+

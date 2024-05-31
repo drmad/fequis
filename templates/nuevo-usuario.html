@@ -1,0 +1,44 @@
+{% extends 'plantilla.html' %}
+{% block cabecera %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nuevo-usuario.css') }}" />
+{% endblock cabecera %}
+
+{% block principal %}
+
+<h1>Nuevo usuario</h1>
+
+<form method="post">
+    {{ frm.csrf_token }}
+    <div>
+        <div>{{ frm.nombre.label }}</div>
+        <div>{{ frm.nombre }}</div>
+        {{ mostrar_errores(frm.nombre.errors)}}
+
+    </div>
+    <div>
+        <div>{{ frm.usuario.label }}</div>
+        <div>{{ frm.usuario }}</div>
+        {{ mostrar_errores(frm.usuario.errors)}}
+    </div>
+    <div>
+        <div>{{ frm.correo_electrónico.label }}</div>
+        <div>{{ frm.correo_electrónico }}</div>
+        {{ mostrar_errores(frm.correo_electrónico.errors)}}
+    </div>
+    <div>
+        <div>{{ frm.contraseña.label }}</div>
+        <div>{{ frm.contraseña(autocomplete = "new-password") }}</div>
+        {{ mostrar_errores(frm.contraseña.errors)}}
+    </div>
+    <div>
+        <div>{{ frm.contraseña_nuevamente.label }}</div>
+        <div>{{ frm.contraseña_nuevamente(autocomplete = "new-password") }}</div>
+        {{ mostrar_errores(frm.contraseña_nuevamente.errors)}}
+
+    </div>
+    <div>
+        <button type="submit">Enviar</button>
+    </div>
+</form>
+{% endblock %}
