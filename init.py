@@ -20,6 +20,4 @@ def create_app():
     route.api.jwt.init_app(app)
     route.principal.login_manager.init_app(app)
 
-    print(app.url_map)
-
     return app
