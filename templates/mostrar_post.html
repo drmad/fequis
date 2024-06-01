@@ -10,15 +10,22 @@
 {% block principal %}
 <section class="post">
     <div class="avatar">
-        <img src="{{ url_for('static', filename='imgs/avatares/' + post.usuario + '.jpg') }}" />
+        {% set codigo_avatar = post.usuario.id | string if post.usuario.tiene_foto else 'foto-perfil-defecto' %}
+        <img src="{{ url_for('static', filename='imgs/avatares/' + codigo_avatar + '.jpg') }}" />
     </div>
     <div class="contenido">
         <div class="meta">
-            <span class="usuario">{{ post.usuario }}</span>
+            <span class="usuario">{{ post.usuario.nombre }}</span>
             <span class="fecha">{{ post.fecha }}</span>
         </div>
         <div class="cuerpo">
             {{ post.cuerpo }}
+
+            <div class="enlaces">
+                👍 {{ post.likes }} ·
+                <a href="#" data-id="{{ post.id }}">Borrar</a>
+
+            </div>
         </div>
     </div>
 </section>

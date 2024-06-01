@@ -40,7 +40,7 @@
 
             <div class="enlaces">
                 👍 {{ post.likes }} ·
-                <a href="{{ url_for('principal.mostrar_post', codigo = loop.index0) }}">Ver más</a> ·
+                <a href="{{ url_for('principal.mostrar_post', id = post.id) }}">Ver más</a> ·
                 <a href="#" data-id="{{ post.id }}">Borrar</a>
 
             </div>

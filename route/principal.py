@@ -156,9 +156,9 @@ def editar_usuario():
 
 
 
-@bp.get('/post/<int:codigo>')
-def mostrar_post(codigo):
-    post = posts[codigo]
+@bp.get('/post/<int:id>')
+def mostrar_post(id):
+    post = Post.obtener_post(id)
 
     return render_template('mostrar_post.html', post = post)
 
