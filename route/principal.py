@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for, session
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
-from init import app, login_manager
 
 from model import db, Usuario, Post
 from form import NuevoUsuario, IniciarSesión, EditarUsuario
@@ -10,6 +9,9 @@ import datetime
 
 bp = Blueprint('principal', __name__)
 
+login_manager = LoginManager()
+login_manager.login_view = 'iniciar_sesión'
+login_manager.login_message = 'Por favor, inicia sesión primero'
 
 @login_manager.user_loader
 def obtener_usuario(id):

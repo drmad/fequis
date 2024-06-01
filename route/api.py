@@ -1,7 +1,6 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, current_app
 from model import Post, Usuario
-
-from init import jwt, db
+from flask_jwt_extended import JWTManager
 
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, current_user
 
@@ -16,6 +15,8 @@ PATCH - Modificar _parte_ de un recurso. No es idempotente
 DELETE - Elimina un recurso
 
 '''
+# Inicializamos el Flask JWT
+jwt = JWTManager()
 
 
 @jwt.user_identity_loader
