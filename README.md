@@ -6,7 +6,7 @@ Este es el programa que hicimos en el módulo de Python/Flask en [LAchirana Plat
 
 ## Instalación
 
-Recuerda que debes variar la activación del entorno virtual en Windows, como conversamos en el módulo 1.
+Salvo un comando, estas instrucciones también debería funcionar en Windows.
 
 ```bash
 # Clonas esta repo en tu equipo
